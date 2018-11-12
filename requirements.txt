@@ -1,0 +1,4 @@
+flask
+pytest
+pytest-cov
+pymysql==0.8.1

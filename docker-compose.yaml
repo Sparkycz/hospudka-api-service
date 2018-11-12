@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+    mysql:
+        image: mysql:5.7
+        restart: always
+        hostname: mysql
+        ports:
+            - 3306
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+
+    api:
+        build: .
+        ports:
+            - "8080:8080"
+        environment:
+            CONFIG: /app/hospudka/config/development.cnf.py
+        entrypoint: /usr/bin/python3
+        command: "http_server.py"
+        volumes:
+            - ./:/app:ro
+        depends_on:
+            - mysql
