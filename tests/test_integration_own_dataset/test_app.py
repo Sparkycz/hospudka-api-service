@@ -7,9 +7,9 @@ from . import generate_db_test
 from tests import app
 
 
-@pytest.fixture(scope='module', autouse=True)
+@pytest.fixture()  # especially for performance you can define `scope='module'`
 def db_test(app):
-    with generate_db_test(app, 'test_3', 'Beers'):
+    with generate_db_test(app, 'test_integration_own_dataset', 'Beers'):
         yield app
 
 

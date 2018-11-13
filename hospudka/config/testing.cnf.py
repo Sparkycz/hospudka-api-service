@@ -1,7 +1,7 @@
 
 DATABASE = {
     "host": "mysql",
-    "db": "mysql",
+    "db": "hospudka",
     "user": "root",
     "password": "root",
     "port": 3306
